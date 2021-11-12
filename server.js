@@ -1,6 +1,9 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import Videos from './dbModel.js'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 // app config
 const app = express()
@@ -26,18 +29,6 @@ app.get('/v2/posts', (req, res) => {
             res.status(500).send(err)
         } else {
             res.status(200).send(data)
-        }
-    })
-})
-
-app.post('/v2/posts', (req, res) => {
-    const dbVideos = req.body
-
-    Videos.create(dbVideos, (err, data) => {
-        if (err) {
-            res.status(500).send(err)
-        } else {
-            res.status(201).send(data)
         }
     })
 })
