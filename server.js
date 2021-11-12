@@ -21,8 +21,6 @@ const connection_url = `mongodb+srv://admin:${process.env.MONGODB_PASSWORD}@clus
 mongoose.connect(connection_url)
 
 // API endpoints
-app.get('/', (req, res) => res.status(200).send('hello world'))
-
 app.get('/v1/posts', (req, res) => res.status(200).send(data))
 
 app.get('/v2/posts', (req, res) => {
