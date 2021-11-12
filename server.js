@@ -17,8 +17,7 @@ app.use((req, res, next) => {
 })
 
 // DB config
-const connection_url =
-    'mongodb+srv://admin:ZIqkoyAXfVrFTX25@cluster0.pplcf.mongodb.net/tiktok?retryWrites=true&w=majority'
+const connection_url = `mongodb+srv://admin:${process.env.MONGODB_PASSWORD}@cluster0.pplcf.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority`
 mongoose.connect(connection_url)
 
 // API endpoints
