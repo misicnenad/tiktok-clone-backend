@@ -1,6 +1,5 @@
 import express from 'express'
 import mongoose from 'mongoose'
-import data from './data.js'
 import Videos from './dbModel.js'
 
 // app config
@@ -21,8 +20,6 @@ const connection_url = `mongodb+srv://admin:${process.env.MONGODB_PASSWORD}@clus
 mongoose.connect(connection_url)
 
 // API endpoints
-app.get('/v1/posts', (req, res) => res.status(200).send(data))
-
 app.get('/v2/posts', (req, res) => {
     Videos.find((err, data) => {
         if (err) {
